@@ -1,15 +1,15 @@
 # BTC/USDT 实时分析系统
 
-这是一个基于 Python 的比特币实时分析系统，提供实时K线图表、技术指标分析和交易建议。
+这是一个基于deepseek的比特币实时分析系统，提供实时K线图表、技术指标分析和交易建议。
 
 ## 功能特点
 
 - 实时K线图表显示
 - 多种技术指标（MA、RSI、MACD、布林带）
 - 实时价格更新
-- 交易建议分析
-- 持仓分析
-- 安全的访问控制
+- deepseekai交易建议分析
+- 持仓输入，可接入ai分析
+- 安全的访问控制，白名单，ip访问限制
 
 ## 系统要求
 
@@ -20,29 +20,19 @@
 ## 安装步骤
 
 1. 克隆项目到本地：
-```bash
-git clone [项目地址]
-cd [项目目录]
-```
 
-2. 创建并激活虚拟环境（推荐）：
-```bash
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# Linux/Mac
-source venv/bin/activate
-```
 
-3. 安装依赖：
+
+2. 安装依赖：
 ```bash
 pip install -r requirements.txt
 ```
 
-4. 配置访问密码：
+3. 配置访问密码和deepseekkey：
 编辑 `auth_config.py` 文件，设置您的访问密码：
 ```python
 ACCESS_TOKEN = "您的访问密码"
+设置您的deepseek key
 ```
 
 ## 运行应用
@@ -58,7 +48,7 @@ python btc_kline_collector.py
 ## 使用说明
 
 1. 登录系统：
-   - 输入配置的访问密码
+   - 输入配置的访问密码 默认为mogu11223344
    - 点击登录按钮
 
 2. 查看图表：
