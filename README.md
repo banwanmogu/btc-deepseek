@@ -43,6 +43,7 @@ pip install -r requirements.txt
 编辑 `auth_config.py` 文件，设置您的访问密码：
 ```python
 ACCESS_TOKEN = "您的访问密码"
+设置您的deepseek key
 ```
 
 ## 运行应用
