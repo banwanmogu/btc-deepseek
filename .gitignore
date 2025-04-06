@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.env
+.venv
+env.bak/
+venv.bak/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# 项目特定
+*.log
+kline_history.json
+btc_1min_kline.csv
+config.ini
+*.db
+*.sqlite3
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 测试覆盖率
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# 文档
+docs/_build/
+site/
+
+# 临时文件
+*.bak
+*.tmp
+*.temp
+
+# 虚拟环境
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 项目特定
+*.log
+kline_history.json
+btc_1min_kline.csv
+
+# 系统文件
+.DS_Store
+Thumbs.db 
