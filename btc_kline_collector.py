@@ -247,7 +247,7 @@ def deepseek_api_call(prompt):
             "max_tokens": 1000
         }
         
-        # 发送请求
+        # 发送请求，增加超时时间
         logging.info("正在发送 API 请求...")
         response = requests.post(
             DEEPSEEK_API_URL,
@@ -256,7 +256,7 @@ def deepseek_api_call(prompt):
                 "Content-Type": "application/json"
             },
             json=data,
-            timeout=30
+            timeout=60  # 增加超时时间到60秒
         )
         
         # 检查响应状态
@@ -276,13 +276,16 @@ def deepseek_api_call(prompt):
             
     except requests.exceptions.Timeout:
         logging.error("API 请求超时")
-        return "请求超时，请重试"
+        return "请求超时，请检查网络连接后重试"
+    except requests.exceptions.ConnectionError:
+        logging.error("API 连接错误")
+        return "连接错误，请检查网络连接后重试"
     except requests.exceptions.RequestException as e:
         logging.error(f"API 请求异常：{str(e)}")
-        return f"请求异常：{str(e)}"
+        return f"请求异常：{str(e)}，请稍后重试"
     except Exception as e:
         logging.error(f"未知错误：{str(e)}")
-        return f"发生错误：{str(e)}"
+        return f"发生错误：{str(e)}，请稍后重试"
 
 # ========== 页面布局 ==========
 app.layout = html.Div([
@@ -381,7 +384,7 @@ app.layout = html.Div([
                       style={"fontSize": "24px", "marginRight": "10px", "color": "#2c3e50"}),
                 html.H1("BTC/USDT 实时分析", 
                        style={"margin": "0", "display": "inline-block", "fontSize": "20px", "color": "#2c3e50"})
-            ], style={"display": "flex", "alignItems": "center"})
+            ], style={"display": "flex", "AlignItems": "center"})
         ], style={
             "display": "flex",
             "justifyContent": "space-between",
@@ -603,7 +606,7 @@ app.layout = html.Div([
                             "borderRadius": "8px",
                             "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
                             "padding": "12px",
-                            "flex": "1",
+                            "flex": "2",
                             "marginRight": "15px"
                         }),
                         
@@ -679,11 +682,13 @@ app.layout = html.Div([
                             "borderRadius": "8px",
                             "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
                             "padding": "12px",
-                            "width": "300px"
+                            "flex": "1",
+                            "minWidth": "300px"
                         })
                     ], style={
                         "display": "flex",
-                        "marginBottom": "15px"
+                        "marginBottom": "15px",
+                        "gap": "15px"
                     }),
                     
                     # 技术指标区域（左右布局）
@@ -697,7 +702,7 @@ app.layout = html.Div([
                             "borderRadius": "8px",
                             "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
                             "padding": "12px",
-                            "flex": "1",
+                            "flex": "2",
                             "marginRight": "15px"
                         }),
                         
@@ -770,12 +775,14 @@ app.layout = html.Div([
                             "borderRadius": "8px",
                             "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
                             "padding": "15px",
-                            "width": "280px",
+                            "flex": "1",
+                            "minWidth": "300px",
                             "overflowY": "auto"
                         })
                     ], style={
                         "display": "flex",
-                        "marginBottom": "15px"
+                        "marginBottom": "15px",
+                        "gap": "15px"
                     })
                 ])
             ], style={
